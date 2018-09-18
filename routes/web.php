@@ -21,3 +21,7 @@ $router->get('/', function () use ($router) {
  * Activities
  */
 $router->get('/api/activities', 'ActivitiesController@index');
+$router->post('/api/activities', 'ActivitiesController@store');
+$router->get('/api/activities/{id}', 'ActivitiesController@show');
+$router->put('/api/activities/{id}', 'ActivitiesController@update');
+$router->delete('/api/activities/{id}', 'ActivitiesController@delete');
