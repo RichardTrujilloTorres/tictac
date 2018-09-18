@@ -48,6 +48,11 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->singleton(
+    \MongoDB\Client::class,
+    \MongoDB\Client::class
+);
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
