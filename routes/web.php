@@ -14,3 +14,10 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+
+/**
+ * Activities
+ */
+$router->get('/api/activities', 'ActivitiesController@index');
