@@ -15,9 +15,9 @@ class ActivitiesController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Client $client)
     {
-        $this->mongodb = new Client();
+        $this->mongodb = $client;
         $this->activities = $this->mongodb->tictac->activities;
     }
 
