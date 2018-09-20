@@ -15,6 +15,20 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->group([
+    // 'middleware' => 'auth',
+    'prefix' => '/api'
+], function () use ($router) {
+    /**
+     * Auth
+     */
+    $router->post('login', 'Auth\AuthController@login');
+    $router->post('register', 'Auth\AuthController@register');
+    $router->post('logout', 'Auth\AuthController@logout');
+    $router->post('refresh', 'Auth\AuthController@refresh');
+    $router->post('me', 'Auth\AuthController@me');
+});
+
 
 
 /**
