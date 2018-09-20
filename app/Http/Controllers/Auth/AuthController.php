@@ -19,6 +19,7 @@ class AuthController extends Controller
      */
     public function __construct(JWTAuth $auth)
     {
+        // TODO: disable registration on production
         $this->middleware('auth', ['except' => ['login', 'register']]);
         $this->auth = $auth;
     }
