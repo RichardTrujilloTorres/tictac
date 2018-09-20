@@ -30,12 +30,22 @@ $router->group([
 });
 
 
+$router->group([
+    'middleware' => 'auth',
+    'prefix' => '/api'
+], function () use ($router) {
 
-/**
- * Activities
- */
-$router->get('/api/activities', 'ActivitiesController@index');
-$router->post('/api/activities', 'ActivitiesController@store');
-$router->get('/api/activities/{id}', 'ActivitiesController@show');
-$router->put('/api/activities/{id}', 'ActivitiesController@update');
-$router->delete('/api/activities/{id}', 'ActivitiesController@delete');
+    /**
+     * Activities
+     */
+    $router->group([
+        'prefix' => 'activities',
+    ], function () use ($router) {
+        $router->get('/', 'ActivitiesController@index');
+        $router->post('/', 'ActivitiesController@store');
+        $router->get('/{id}', 'ActivitiesController@show');
+        $router->put('/{id}', 'ActivitiesController@update');
+        $router->delete('/{id}', 'ActivitiesController@delete');
+    });
+});
+
